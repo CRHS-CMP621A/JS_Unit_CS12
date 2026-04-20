@@ -1,0 +1,47 @@
+body {
+  font: 14px arial;
+  text-align: center;
+}
+.wrapper {
+  margin: 0 auto; /* center it all on the page*/
+  width: 440px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+.menu {
+  background-color: blanchedalmond;
+  padding: 5px;
+}
+.right {
+  padding: 5px;
+  background-color: lightsalmon;
+}
+.heading {
+  font: 20px arial;
+  color: red;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-top: 25px;
+}
+.field {
+  margin-bottom: 5px;
+  text-align: right;
+}
+.subheading {
+  color: red;
+  font-size: 15px;
+}
+
+.details {
+  background-color: wheat;
+  padding: 5px;
+  display: none; /* this hides the details div on load*/
+}
+
+.details-field {
+  margin-bottom: 5px;
+  margin-right: 100px;
+  text-align: right;
+}

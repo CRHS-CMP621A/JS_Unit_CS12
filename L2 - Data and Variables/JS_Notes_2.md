@@ -185,3 +185,67 @@ Order of operations for mathematical expressions is BEDMAS.
 
 Fork and Solve → [lets do some math - Replit](https://replit.com/@I3uckwheat/lets-do-some-math#math.js)\
 Remember: Use _number(  )_   to convert a string to a number data type.
+
+
+
+### Relational operators
+ `in`   The in operator determines whether an object has a given property.
+ 
+ `<`   Less than operator.
+ 
+ `>`   Greater than operator.
+ 
+ `<=`  Less than or equal operator.
+ 
+ `>=`  Greater than or equal operator.
+
+### Equality Operators
+ `==`        Equality operator.
+ 
+ `!=`       Inequality operator.
+ 
+ `===`    Strict equality operator.   
+ 
+ `!==`    Strict inequality operator.
+
+Since Javascript uses **Type Coercion**, the strict equality and inequality operators are needed.
+
+
+``` javascript
+console.log("0" == 0);    //true
+console.log("0" === 0);   //false
+```
+
+### Logical operators
+ `&&`    Logical AND.
+ 
+ `||`    Logical OR.
+
+## Interaction: alert, prompt, confirm
+Resources: https://javascript.info/alert-prompt-confirm
+
+### alert
+This displays an dialogue box on the browser. It shows a message and waits for the user to press “OK”.
+	For example:  `alert("Hello");`
+
+### confirm
+The syntax: `result = confirm(question);`
+
+The function *confirm* shows a modal window with a question and two buttons: `OK` and `Cancel`.
+
+The result is true if `OK` is pressed and false otherwise.
+
+### prompt
+The function prompt accepts two arguments: `result = prompt(title, [default]);`
+
+It shows a modal window with a text message, an input field for the visitor, and the buttons OK/Cancel.
+
+* title The text to show the visitor.
+* [ default ] An optional second parameter, the initial value for the input field.
+  
+The visitor can type something in the prompt input field and press OK. Then we get that text in the result. Or they can cancel the input by pressing Cancel or hitting the Esc key, then we get null as the result.
+
+```javascript
+let age = prompt('How old are you?', 100); // initial value is 100
+alert(`You are ${age} years old!`); // You are 100 years 
+```

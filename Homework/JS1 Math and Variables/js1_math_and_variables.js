@@ -1,11 +1,12 @@
 /*For each function, complete the question. Make sure to notice the OUTPUT requirement.
   !!! You will CALL your functions in the console.  !!!  */
+"use strict";
 
 function ex() {
   /* Create a script that will PROMPT the user for two numbers
    Then it will add them together and place it in the console.   */
-  let num1 = prompt("What is your first number?");
-  let num2 = prompt("What is your second number?");
+  num1 = prompt("What is your first number?");
+  num2 = prompt("What is your second number?");
   let result = num1 + num2;
   console.log(result);
   // Run your function by typing ex() in the console //
