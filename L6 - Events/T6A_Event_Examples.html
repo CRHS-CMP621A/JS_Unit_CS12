@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>T6A - Events - Button Event Example</title>
+  </head>
+
+  <body onLoad="alert('Welcome!');">
+    <a href="#" onClick="alert('Welcome!');">Click Me!</a>
+    <br />
+    <br />
+    <a href="#" onMouseOver="alert('Hover Alert!');">Hover Over Me!</a>
+
+    <h1 onMouseOver="style.color='red';" onMouseOut="style.color='black';">
+      Mouse Over Example
+    </h1>
+    <br />
+    <br />
+    <h1
+      onMouseOver="document.bgColor='blue';"
+      onMouseOut="document.bgColor='white';"
+    >
+      Mouse Over Background Color Change
+    </h1>
+    <br />
+    <br />
+    <button
+      type="button"
+      name="button"
+      onClick="alert('You clicked the button!');"
+    >
+      Click Me Please!
+    </button>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+/16 #JS Assignment 1 - Variables and Math
+#########################################
+/4 - ##Q1 - Sum of Two Numbers
+#Prompt for two numbers
+#Convert to number type
+#Sum of Two numbers
+#Display 2 numbers and sum in sentence
+
+/4 - ##Q2 - Name and Age
+#Prompt for first name, last name, and year
+#Convert to number
+#Calculate age
+#Display Full Name and Age in sentence
+
+/4 - ##Q3 - Circle Calculation
+#Prompt for radius
+#Convert to Number type
+#Calculate and display Circumference
+#Calculate and display Area in sentence
+
+/4 - ##Q4 - Food Order
+#Prompt for Number of fries and drinks
+#Convert to number type
+#Display food ordered
+#Display total price with tax in sentence

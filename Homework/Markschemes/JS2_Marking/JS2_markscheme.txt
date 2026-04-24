@@ -1,0 +1,19 @@
+/12 #JS Assignment 2 - Conditionals Assignment 
+######################################### 
+/4 - ##Q1 - Grade_Boundaries 
+#Prompt for student grade 
+#Correct Use of Conditions 
+#Correct Outputs 
+#No errors 
+
+ /4 - ##Q2 - Recall_Number 
+#Prompt for car model number 
+#Correct Use of Conditions 
+#Correct Outputs 
+#No errors 
+
+ /4 - ##Q3 - Weekly_Pay 
+#Prompt for employee name, rate of pay, and hours 
+#If hours exceeds 40, pay overtime for excess hours 
+#Calculate pay for regular hours 
+#Display total pay in sentence
