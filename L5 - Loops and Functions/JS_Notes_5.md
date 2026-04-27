@@ -1,4 +1,4 @@
-## Chapter 5. Loops
+## Chapter 5. Loops and Functions
 
 Resources: https://education.launchcode.org/intro-to-professional-web-dev/chapters/loops/index.html
 

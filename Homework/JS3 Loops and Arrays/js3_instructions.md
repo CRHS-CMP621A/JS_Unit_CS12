@@ -4,7 +4,7 @@ Open [Google Doc with Instructions](https://docs.google.com/document/d/1ImWLhA0D
 
 Complete Questions 1 to 3.
 
-### Use _prompt_ for input and _console.log_ for output.
+### Use _prompt_ for input and _console.log_ for output. Don't forget to RETURN the required value(s) for each function.
 
 Submit code in Google Doc on Classroom.
 

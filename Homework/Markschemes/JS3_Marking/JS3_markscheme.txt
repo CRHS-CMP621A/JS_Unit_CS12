@@ -1,0 +1,25 @@
+/18 Markscheme JS3 Loops and Arrays Assignment
+#########################################
+/6 - ##Q1 - Get_Five
+_#Empty array initialized
+_#Prompt for name
+_#Array Push
+_#Use of loop (repeat 5)
+_#Sort Array
+_#Return Array
+
+/6 - ##Q2 - Average_mark
+_#parameter: one array
+_#total initialized at 0
+_#Loop through each mark in array
+_#Each mark added to total
+_#Average calculation
+_#Return average
+
+/6 - ##Q3 - Warm_Temps
+_#parameter: one array and one number
+_#Loop through each temperature in array
+_#Day calculated
+_#Print to screen the day and temperature
+_#Stop when goal temperature is reached
+_#Return day

@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>JS3 Loops and Arrays</title>
+    <script src="js3_loops_arrays.js"></script>
+  </head>
+
+  <body>
+    <h1>JS3 Loops and Arrays</h1>
+    View Console/Alert for output.
+
+    <h2>Instructions</h2>
+    <p>
+      For the following problems you will get input through prompt(). Please
+      send ALL OUTPUT to BOTH ALERT and RETURN. Practice good string formatting.
+    </p>
+
+    <h3>Question 1</h3>
+    <p>
+      Get_Five: Get the names of five students and return the sorted name array.
+    </p>
+    <ul>
+      <li><strong>IN:</strong> nothing</li>
+      <li>
+        <strong>DO:</strong> Ask for five names from the user and store in an
+        array. A loop is required. The final list should be sorted.
+      </li>
+      <li><strong>OUT:</strong> return the sorted name array.</li>
+    </ul>
+    <h5>Test with:</h5>
+    <p><code>console.log( q1() )</code></p>
+
+    <h3>Question 2</h3>
+    <p>
+      Average_mark: If a student has their Grade 12 marks in a list, find their
+      mark average.
+    </p>
+    <ul>
+      <li>
+        <strong>IN:</strong> An array with numbers representing a student's
+        grade 12 marks. (Could be of length 1 to 8).
+      </li>
+      <li>
+        <strong>DO:</strong> Determine the average of the marks. A loop is
+        required.
+      </li>
+      <li><strong>OUT:</strong> return the average mark.</li>
+    </ul>
+    <h5>Test with:</h5>
+    <p>
+      <code>console.log( q2( [80, 85, 87, 86, 88, 90] ) )</code> &nbsp;//
+      returns 86
+    </p>
+
+    <h3>Question 3</h3>
+    <p>
+      WarmTemps: A gardener checks the soil temperature every day to see if it
+      is warm enough to plant beans.
+    </p>
+    <ul>
+      <li>
+        <strong>IN:</strong> an array of daily temperatures, and a number
+        representing the goal temperature.
+      </li>
+      <li>
+        <strong>DO:</strong> Print the day and the temperature until the first
+        day that reaches or exceeds that goal temperature.
+      </li>
+      <li>
+        <strong>OUT:</strong> return the first day on which the goal temperature
+        is reached or exceeded.
+      </li>
+    </ul>
+    <h5>Test with:</h5>
+    <p>
+      <code>console.log( q3( [13, 15, 13, 18, 20, 18, 22], 20 ) )</code>
+      &nbsp;// returns 5
+    </p>
+
+    <h5>Example 1</h5>
+    <p>Given: Temperatures [ 13, 15, 13, 18, 20, 18, 22 ], Goal 20 degrees</p>
+    <p>Print:</p>
+    <ul>
+      <li>1 --&gt; 13</li>
+      <li>2 --&gt; 15</li>
+      <li>3 --&gt; 13</li>
+      <li>4 --&gt; 18</li>
+      <li>5 --&gt; 20</li>
+    </ul>
+    <p>Return: 5</p>
+
+    <h5>Example 2</h5>
+    <p>Given: Temperatures [ 14, 11, 18, 19, 20 ], Goal 15 degrees</p>
+    <p>Print:</p>
+    <ul>
+      <li>1 --&gt; 14</li>
+      <li>2 --&gt; 11</li>
+      <li>3 --&gt; 18</li>
+    </ul>
+    <p>Return: 3</p>
+
+    <h5>Example 3</h5>
+    <p>Given: Temperatures [ -5, -2, 0, 4, 5, 12, 6 ], Goal 10 degrees</p>
+    <p>Print:</p>
+    <ul>
+      <li>1 --&gt; -5</li>
+      <li>2 --&gt; -2</li>
+      <li>3 --&gt; 0</li>
+      <li>4 --&gt; 4</li>
+      <li>5 --&gt; 5</li>
+      <li>6 --&gt; 12</li>
+    </ul>
+    <p>Return: 6</p>
+  </body>
+</html>
