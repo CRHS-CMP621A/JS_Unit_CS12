@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>T8D - removeEventListener</title>
+    <style>
+      .myDIV {
+        background-color: orange;
+        border: 1px solid;
+        color: #fff;
+        font-size: 20px;
+        padding: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>JavaScript removeEventListener()</h2>
+    <div class="myDIV">
+      <p>
+        This div element has an onmousemove event handler that displays a random
+        number every time you move your mouse inside this orange field.
+      </p>
+      <p>Click the Remove button to remove the div's event handler.</p>
+      <button
+        type="button"
+        name="button"
+        onclick="removeHandler()"
+        class="myBtn"
+      >
+        Remove
+      </button>
+    </div>
+    <p class="display_rand"></p>
+    <script>
+      document
+        .querySelector(".myDIV")
+        .addEventListener("mousemove", myFunction);
+
+      function myFunction() {
+        document.querySelector(".display_rand").textContent = Math.random();
+      }
+
+      function removeHandler() {
+        //remove the event listener from the orange DIV.
+      }
+    </script>
+  </body>
+</html>
