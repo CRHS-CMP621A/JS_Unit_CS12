@@ -1,6 +1,14 @@
 ﻿## Chapter 7. DOM - Document Object Model
 
-Resources: https://javascript.info/searching-elements-dom
+Resources: https://javascript.info/searching-elements-dom |  https://javascript.info/searching-elements-dom | https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
+
+
+
+## The DOM Tree
+
+DOM methods and properties are part of Web APIs (libraries provided by the browser). JavaScript can interact with these APIs to access HTML elements and styles. Every element on a webpage can be represented as a node in the DOM Tree.
+
+![DOM Tree Structure](assets/DOM_Tree_Structure.jpg)
 
 The DOM is a tree of HTML elements, organized in the nested way they are written in the HTML file.
 
@@ -38,11 +46,128 @@ The call to `document.querySelector(css)` returns the first element that matches
 </script>
 ```
 
----
+<h4 style="background-color: yellow;"> Task 7.1: DOM Access and Manipulation </h4>
 
-<h4 style="background-color: yellow;"> Task 7.1: Functions and DOM </h4>
+Starter Code: [T7A_DOM_Manipulation.html](T7A_DOM_Manipulation/T7A_DOM_Manipulation.html) and [7A_DOM_Manipulation.js](T7A_DOM_Manipulation/7A_DOM_Manipulation.js) 
 
-Starter Code: [T7A_Functions_DOM.html](T7A_Functions_DOM/T7A_Functions_DOM.html) 
+
+
+### Selecting HTML Objects
+
+#### document.querySelector(css)
+Use `document.querySelector()` to select the first HTML element that matches a CSS selector.
+``` html
+<!-- HTML -->
+<p class="para">
+    JavaScript can be used to manipulate text, html attributes and CSS styles!
+</p>
+
+```
+
+
+```javascript
+// javaScript
+const para = document.querySelector(".para");
+```
+
+`".para"` is a class selector (same style as CSS).
+
+### Observe an HTML object properties in the console
+Use `console.dir()` to inspect an element object, including its attributes, properties, and methods.
+
+```javascript
+console.dir(para);
+```
+
+This helps you discover useful properties like `.textContent`, `.innerHTML`, `.value`, and `.style`.
+
+### Text Elements have a textContent property 
+Use `.textContent` to read or replace the visible text inside an element.
+
+```javascript
+console.log(para.textContent); // access the text of the HTML element
+para.textContent = "Changed by JS"; // changing the text of the HTML element
+```
+
+### Input Elements have a value property
+Inputs are also HTML elements, so you can select and inspect them the same way.
+
+``` html
+<!-- HTML -->
+<input type="text" id="input" placeholder="Type something here!" />
+```
+
+```javascript
+// javaScript
+const input = document.querySelector("#input");
+console.dir(input);
+```
+
+`"#input"` is an id selector.
+
+#### Access and change `.value`
+Use `.value` for form controls like text inputs.
+
+```javascript
+console.log(input.value);
+input.value = "Changed textbox input via JS";
+```
+
+#### Access raw HTML content with `.innerHTML`
+Use `.innerHTML` to read or change the HTML markup inside an element.
+
+```javascript
+const demo = document.querySelector(".demo");
+console.log("Demo InnerHTML:", demo.innerHTML);
+```
+
+#### Append tags using `.innerHTML`
+You can add HTML tags by appending to `.innerHTML`.
+
+```javascript
+demo.innerHTML += "<p>This is a new paragraph!</p>";
+```
+
+#### Access style and change CSS with JavaScript
+Select an element, inspect it, then update its style properties.
+
+```javascript
+const box = document.querySelector(".box");
+console.dir(box);
+
+box.style.backgroundColor = "lightgreen";
+box.style.borderRadius = "30px";
+```
+
+Use camelCase for CSS property names in JavaScript:
+- `background-color` becomes `backgroundColor`
+- `border-radius` becomes `borderRadius`
+
+### Permanant
+Changing the .textContent, .value, .innerHTML or .style of an object does not permanently change the HTML file itself. It changes what is displayed in the page while the script runs.
+
+### Task 7.1 Instructions (Cross-listed with notes)
+
+1. Select the first paragraph using `document.querySelector(".para")`. (See: Selecting HTML Objects)
+2. Use `console.dir()` on the paragraph object to inspect its properties and methods. (See: Observe an HTML object properties in the console)
+3. Access and display the paragraph `.textContent` in the console. (See: Text Elements have a textContent property)
+4. Change the paragraph `.textContent` to a new message. (See: Text Elements have a textContent property)
+5. Select the text input using `document.querySelector("#input")`, and inspect it with `console.dir()`. (See: Input Elements have a value property)
+6. Access and display the input `.value`, then change the `.value` to a new message. (See: Access and change `.value`)
+7. Select the `.demo` div and display its current `.innerHTML` in the console. (See: Access raw HTML content with `.innerHTML`)
+8. Append a new `<p>` tag to the existing `.innerHTML`. (See: Append tags using `.innerHTML`)
+9. Select the `.box` element and inspect it in the console to observe style-related properties. (See: Access style and change CSS with JavaScript)
+10. Change `.box` styles by updating `backgroundColor` and `borderRadius`. (See: Access style and change CSS with JavaScript)
+11. Confirm your understanding that these changes are visual runtime changes and do not permanently overwrite the HTML file. (See: Permanant)
+
+
+
+<h4 style="background-color: yellow;"> Task 7.2: Functions and DOM </h4>
+
+
+
+
+Starter Code: [T7B_Functions_DOM.html](T7B_Functions_DOM/T7B_Functions_DOM.html) 
 
 Edit the following HTML so that the button click calls a function that:
 1. Selects `paragraph1` and changes the text to "Hi there".
@@ -76,77 +201,15 @@ Edit the following HTML so that the button click calls a function that:
 </html>
 ```
 
-## The DOM Tree
-
-<h4 style="background-color: yellow;"> Task 7.2: DOM Manipulation </h4>
-
-Starter Code: [T7B_DOM_Manipulation.html](T7B_DOM_Manipulation/T7B_DOM_Manipulation.html) and [T7B_DOM_Manipulation.js](T7B_DOM_Manipulation/T7B_DOM_Manipulation.js) 
-
-DOM methods and properties are part of Web APIs (libraries provided by the browser). JavaScript can interact with these APIs to access HTML elements and styles. Every element on a webpage can be represented as a node in the DOM Tree.
-
-![DOM Tree Structure](assets/DOM_Tree_Structure.jpg)
-
-#### Getting Values
-Through the DOM, we can access different properties of HTML elements.
-
-To access an element property on a webpage:
-
-```javascript
-document.querySelector('element').property;
-```
-
-#### The `.textContent` property
-You can access the text content of an element like an `h2` header.
-
-```javascript
-let headingText = document.querySelector('h2').textContent;
-console.log(headingText);
-```
-
-In this example, `querySelector()` is used to select the `textContent` property of an HTML `h2` element.
-
-You can also target elements by id or class.
-
-```javascript
-let highNumberText = document.querySelector('.highNumber').textContent;
-console.log(highNumberText);
-```
-
-Just like in CSS, a period is used to indicate a class selector.
-
-#### The `.value` property
-For input elements (such as number or text inputs), use `.value` instead of `.textContent`.
-
-```javascript
-let userInput = document.querySelector('input').value;
-console.log(userInput);
-```
-
-Note: values from inputs are returned as strings.
-
-#### Using Variables
-Instead of outputting values directly to the console each time, assign them to variables first.
-
-```javascript
-let headingText = document.querySelector('h2').textContent;
-console.log(headingText);
-```
-
-#### Setting Values
-`querySelector()` can also be used to set or change properties.
-
-```javascript
-document.querySelector('h2').textContent = 'This heading has changed!';
-```
-
-This does not permanently change the HTML file itself. It changes what is displayed in the page while the script runs.
-
 #### Changing CSS Styles
 You can also use `querySelector()` to manipulate CSS styles.
 
 ```javascript
 document.querySelector('h2').style.color = 'green';
 ```
+
+
+
 
 #### Reacting to Events
 

@@ -35,25 +35,6 @@ function getParameterCount(fileSource, functionName) {
     .filter(Boolean).length;
 }
 
-function extractNumbers(text) {
-  const matches = String(text).match(/-?\d+(?:\.\d+)?/g) || [];
-  return matches.map((n) => Number(n));
-}
-
-function numbersArrayEquals(a, b, tolerance = 0.02) {
-  if (!Array.isArray(a) || !Array.isArray(b) || a.length !== b.length) {
-    return false;
-  }
-
-  for (let i = 0; i < a.length; i += 1) {
-    if (Math.abs(Number(a[i]) - Number(b[i])) > tolerance) {
-      return false;
-    }
-  }
-
-  return true;
-}
-
 function isSameStringArray(a, b) {
   if (!Array.isArray(a) || !Array.isArray(b) || a.length !== b.length) {
     return false;
@@ -187,46 +168,67 @@ function gradeQ1(studentSource) {
 
 function gradeQ2(studentSource) {
   const q2Source = extractFunctionSource(studentSource, "q2");
-  const marks = [80, 85, 87, 86, 88, 90];
-  const expectedAverage = 86;
-  const run = runStudentFunction(studentSource, "q2", { args: [marks] });
+  const runA = runStudentFunction(studentSource, "q2", {
+    args: [[80, 85, 87, 86, 88, 90]],
+  });
+  const runB = runStudentFunction(studentSource, "q2", { args: [[100]] });
+  const runC = runStudentFunction(studentSource, "q2", {
+    args: [[10, 20, 30, 40]],
+  });
 
   const hasOneParam = getParameterCount(studentSource, "q2") === 1;
-  const totalInitZero = /\btotal\s*=\s*0\b/.test(q2Source);
+  const accumulatorInitZero = /\b(?:let|var|const)\s+\w+\s*=\s*0\b/.test(
+    q2Source,
+  );
   const loopsThroughArray = /(for\s*\(|for\s+\w+\s+of\s+\w+|forEach\s*\()/.test(
     q2Source,
   );
   const addsEachMark =
-    /\btotal\s*\+=\s*\w+/.test(q2Source) ||
-    /\btotal\s*=\s*total\s*\+/.test(q2Source);
+    /\b\w+\s*\+=\s*\w+/.test(q2Source) ||
+    /\b\w+\s*=\s*\w+\s*\+\s*\w+/.test(q2Source);
   const calculatesAverage =
-    /\baverage\b|\bavg\b/.test(q2Source) && /\/\s*\w+\.length/.test(q2Source);
+    /\/\s*\w+\.length/.test(q2Source) ||
+    /\.reduce\s*\([\s\S]*\)\s*\/\s*\w+\.length/.test(q2Source);
   const returnsAverage =
-    typeof run.returnValue === "number" &&
-    Math.abs(run.returnValue - expectedAverage) <= 0.02;
+    runA.runtimeError === null &&
+    runB.runtimeError === null &&
+    runC.runtimeError === null &&
+    typeof runA.returnValue === "number" &&
+    typeof runB.returnValue === "number" &&
+    typeof runC.returnValue === "number" &&
+    Math.abs(runA.returnValue - 86) <= 0.02 &&
+    Math.abs(runB.returnValue - 100) <= 0.02 &&
+    Math.abs(runC.returnValue - 25) <= 0.02;
 
   const criteria = [
     markCriterion(hasOneParam, "Parameter: one array"),
-    markCriterion(totalInitZero, "Total initialized at 0"),
+    markCriterion(accumulatorInitZero, "Total initialized at 0"),
     markCriterion(loopsThroughArray, "Loop through each mark in array"),
     markCriterion(addsEachMark, "Each mark added to total"),
     markCriterion(calculatesAverage, "Average calculation"),
     markCriterion(
       returnsAverage,
       "Return average",
-      `Expected return value: ${expectedAverage}`,
+      "Expected returns: 86, 100, and 25 for three test arrays.",
     ),
   ];
 
-  return { run, criteria };
+  return { run: runA, criteria };
 }
 
 function gradeQ3(studentSource) {
   const q3Source = extractFunctionSource(studentSource, "q3");
-  const temps = [13, 15, 13, 18, 20, 18, 22];
-  const goal = 20;
-  const expectedDay = 5;
-  const run = runStudentFunction(studentSource, "q3", { args: [temps, goal] });
+  const runA = runStudentFunction(studentSource, "q3", {
+    args: [[13, 15, 13, 18, 20, 18, 22], 20],
+  });
+  const runB = runStudentFunction(studentSource, "q3", {
+    args: [[14, 11, 18, 19, 20], 15],
+  });
+  const runC = runStudentFunction(studentSource, "q3", {
+    args: [[-5, -2, 0, 4, 5, 12, 6], 10],
+  });
+
+  const run = runA;
   const allOutput = [...run.consoleLogs, ...run.alertLogs];
   const outputText = allOutput.join("\n");
 
@@ -235,10 +237,9 @@ function gradeQ3(studentSource) {
     q3Source,
   );
   const dayCalculated =
-    /\bday\b/.test(q3Source) ||
-    /\bnum\b/.test(q3Source) ||
     /\+\+/.test(q3Source) ||
-    /\+=\s*1/.test(q3Source);
+    /\+=\s*1/.test(q3Source) ||
+    (/\breturn\b/.test(q3Source) && /\bif\b/.test(q3Source));
 
   const printsDayAndTemp =
     outputContainsDayTemp(allOutput, 1, 13) &&
@@ -246,12 +247,21 @@ function gradeQ3(studentSource) {
     outputContainsDayTemp(allOutput, 5, 20);
 
   const stopsAtGoal =
+    runA.runtimeError === null &&
+    runB.runtimeError === null &&
+    runC.runtimeError === null &&
+    typeof runA.returnValue === "number" &&
+    typeof runB.returnValue === "number" &&
+    typeof runC.returnValue === "number" &&
+    Math.abs(runA.returnValue - 5) <= 0.02 &&
+    Math.abs(runB.returnValue - 3) <= 0.02 &&
+    Math.abs(runC.returnValue - 6) <= 0.02 &&
     !/\b6\s*-{1,2}>\s*18\b/.test(outputText) &&
     !/\b7\s*-{1,2}>\s*22\b/.test(outputText);
 
   const returnsDay =
     typeof run.returnValue === "number" &&
-    Math.abs(run.returnValue - expectedDay) <= 0.02;
+    Math.abs(run.returnValue - 5) <= 0.02;
 
   const criteria = [
     markCriterion(hasTwoParams, "Parameter: one array and one number"),
@@ -270,7 +280,7 @@ function gradeQ3(studentSource) {
     markCriterion(
       returnsDay,
       "Return day",
-      `Expected return value: ${expectedDay}`,
+      "Expected return value: 5 for [13,15,13,18,20,18,22] with goal 20.",
     ),
   ];
 
