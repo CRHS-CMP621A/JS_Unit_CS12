@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Radio Button Example 1</title>
+    <script>
+      function choice(davalue) {
+        document.querySelector(".dachoice").value = davalue;
+      }
+    </script>
+    <style>
+      p {
+        font-weight: 900;
+        color: #0000ff;
+        text-transform: uppercase;
+        font-size: 18px;
+      }
+      .dachoice {
+        font-weight: 600;
+        color: #0000ff;
+        font-size: 14px;
+      }
+      .dacolor {
+        font-size: 18px;
+        color: red;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Please choose your favorite browser.</p>
+    <form>
+      <input
+        type="radio"
+        onclick="choice(this.value)"
+        name="browser"
+        value="Firefox"
+      /><span class="dacolor">Firefox</span><br />
+      <input
+        type="radio"
+        onclick="choice(this.value)"
+        name="browser"
+        value="Chrome"
+      /><span class="dacolor">Chrome</span><br />
+      <input
+        type="radio"
+        onclick="choice(this.value)"
+        name="browser"
+        value="Safari"
+      /><span class="dacolor">Safari</span><br /><br />
+      <input type="text" name="" class="dachoice" value="" />
+    </form>
+  </body>
+</html>

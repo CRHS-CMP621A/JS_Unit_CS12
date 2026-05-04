@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Radio Button Selected Value Example</title>
+    <script>
+      function showSelected() {
+        let selected = document.querySelector(
+          'input[name="browserChoice"]:checked',
+        );
+
+        if (selected) {
+          document.querySelector(".result").textContent =
+            "Selected browser: " + selected.value;
+        } else {
+          document.querySelector(".result").textContent =
+            "No browser selected yet.";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <p>Choose one browser, then click the button:</p>
+
+    <input type="radio" name="browserChoice" value="Firefox" />Firefox<br />
+    <input type="radio" name="browserChoice" value="Chrome" />Chrome<br />
+    <input type="radio" name="browserChoice" value="Safari" />Safari<br /><br />
+
+    <button type="button" onclick="showSelected()">Show Selected</button>
+    <p class="result"></p>
+  </body>
+</html>

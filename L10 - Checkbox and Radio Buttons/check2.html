@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Checkbox Example 2</title>
+    <script>
+      function check() {
+        let isChecked = document.querySelector(".myCheck").checked;
+        if (isChecked == true) {
+          document.querySelector(".demo").textContent = isChecked + " so CheckBox is checked";
+        } else {
+          document.querySelector(".demo").textContent = isChecked + " so CheckBox is NOT checked";
+        }
+      };
+    </script>
+  </head>
+  <body>
+    Checkbox: <input type="checkbox" class="myCheck" name="" value="">
+    <button type="button" name="button" onClick="check()">Try It</button>
+    <p>Click the "Try It" button to find out whether the checkbox is checked, or not.</p>
+    <p class="demo"></p>
+  </body>
+</html>
+

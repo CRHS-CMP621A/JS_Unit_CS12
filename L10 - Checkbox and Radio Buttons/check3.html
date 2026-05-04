@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Checkbox Example 3</title>
+    <script>
+      function check() {
+        if (document.querySelector(".chkbox").checked == true) {
+          document.querySelector(".text").style.display = "block";
+          // a block element fills the entire line and nothing can be displayed on it's right or left side.
+        } else {
+          document.querySelector(".text").style.display = "none";
+          // element will not be displayed on the screen
+        }
+      }
+    </script>
+    <style>
+      .text {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    Checkbox:
+    <input type="checkbox" class="chkbox" onClick="check()" name="" value="" />
+    <p>This program displays some text when a checkbox is checked.</p>
+    <p class="text">Checkbox is CHECKED!</p>
+  </body>
+</html>

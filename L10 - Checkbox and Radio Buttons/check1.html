@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Checkbox Example 1</title>
+    <script>
+      function check() {
+        document.querySelector(".myCheck").checked = true;
+      };
+      function uncheck() {
+        document.querySelector(".myCheck").checked = false;
+      };
+    </script>
+  </head>
+  <body>
+    Checkbox: <input type="checkbox" class="myCheck" name="" value="">
+    <button type="button" name="button" onClick="check()">Check Checkbox</button>
+    <button type="button" name="button" onClick="uncheck()">Uncheck Checkbox</button>
+  </body>
+</html>

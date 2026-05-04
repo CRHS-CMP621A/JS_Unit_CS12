@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Quiz Example</title>
+    <style>
+      body {
+        font-size: 10px;
+      }
+      form {
+        border: 1px solid black;
+        padding: 10px;
+      }
+      .correct {
+        display: none;
+        color: green;
+      }
+      .wrong {
+        display: none;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Quiz about Charlottetown Rural High School</h1>
+    <form>
+      <h2>Q1: What year was the school first built?</h2>
+      <input type="radio" name="year" class="q1_1966" value="1966" />1966
+      <input type="radio" name="year" class="q1_1976" value="1976" />1976
+      <input type="radio" name="year" class="q1_1986" value="1986" />1986
+      <input type="radio" name="year" class="q1_1996" value="1996" />1996
+      <div class="correct">Correct! The school was built in 1966.</div>
+      <div class="wrong">
+        Incorrect! The school was built in 1966 (answer A).
+      </div>
+      <br />
+      <button type="button" onclick="checkQ1()">Check</button>
+      <button type="button" onclick="resetQ1()">Try Again</button>
+    </form>
+    <script>
+      function checkQ1() {
+        let correct = document.querySelector(".q1_1966").checked;
+        if (correct) {
+          document.querySelector(".correct").style.display = "block";
+        } else {
+          document.querySelector(".wrong").style.display = "block";
+        }
+      }
+      function resetQ1() {
+        document.querySelector("form").reset();
+        document.querySelector(".correct").style.display = "none";
+        document.querySelector(".wrong").style.display = "none";
+      }
+    </script>
+  </body>
+</html>
