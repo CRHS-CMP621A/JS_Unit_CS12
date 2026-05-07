@@ -107,19 +107,22 @@ Output reference image: ![Check 3 Output](assets/check3_output.png)
 </html>
 ```
 
-#### Example: [check4.html](check4.html)
+<h4 style="background-color: yellow;"> Task 10.A: Light Switch </h4>
+
+Starter File: [LightSwitch.html](LightSwitch.html)
+
 This program simulates a light switch. The page is white when unchecked and black when checked.
 
-Initial screen reference: ![Check 4 Off](assets/check4_off.png)
+Initial screen reference: ![Light Switch Off](assets/light_switch_off.png)
 
-Checked screen reference: ![Check 4 On](assets/check4_on.png)
+Checked screen reference: ![Light Switch On](assets/light_switch_on.png)
 
 ```html
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
-    <title>Checkbox Example 4</title>
+    <title>Light Switch</title>
     <script>
       function lights() {
         // need code here
@@ -143,7 +146,7 @@ Checked screen reference: ![Check 4 On](assets/check4_on.png)
 
 ---
 
-<h4 style="background-color: yellow;"> Task 10.1: Checkbox Problem </h4>
+<h4 style="background-color: yellow;"> Task 10.B: Checkbox Problem </h4>
 
 Starter File: [CheckBoxProblem.html](CheckBoxProblem.html)
 
@@ -299,7 +302,7 @@ User does not get immediate feedback unless they press the button.
 
 ---
 
-<h4 style="background-color: yellow;"> Task 10.2: Radio Passport Problem </h4>
+<h4 style="background-color: yellow;"> Task 10.C: Radio Passport Problem </h4>
 
 Starter File: [RadioPassportProblem.html](RadioPassportProblem.html)
 
